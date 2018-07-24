@@ -7,11 +7,12 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import parse_qs
 
 
+
 class MessageHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         # 1. How long was the message?
         length = int(self.headers.get('Content-length', 0))
-
+ 
         # 2. Read the correct amount of data from the request.
         data = self.rfile.read(length).decode()
 
